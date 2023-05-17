@@ -20,6 +20,6 @@ spec:
           image: IMAGE_NAME
           ports:
             - containerPort: 80
-          envFrom:
-            - secretRef:
-                name: logging-service
+#           envFrom:
+#             - secretRef:
+#                 name: logging-service
