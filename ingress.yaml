@@ -23,7 +23,7 @@ spec:
     service:
       name: ssl-redirect
       port:
-        number: use-annotation
+        number: 80
   rules:
     - host: logging-service.shelter-technology.com
       http:
