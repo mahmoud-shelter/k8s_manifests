@@ -12,3 +12,7 @@ spec:
   ports:
   - port: 80         # ClusterIP port
     targetPort: 80   # Pod port
+
+
+
+    
