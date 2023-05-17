@@ -1,5 +1,5 @@
 apiVersion: networking.k8s.io/v1
-kind: IngressV1
+kind: Ingress
 metadata:
   name: logging-service
   namespace: dev
