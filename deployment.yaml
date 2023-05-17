@@ -16,10 +16,10 @@ spec:
         app: logging-service
     spec:
       containers:
-      - name: logging-service
-        image: IMAGE_NAME
-        ports:
-        - containerPort: 80
-        envFrom:
-        - secretRef:
-            name: logging-service 
+        - name: logging-service
+          image: IMAGE_NAME
+          ports:
+            - containerPort: 80
+          envFrom:
+            - secretRef:
+                name: logging-service
