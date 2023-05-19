@@ -10,7 +10,7 @@ spec:
   selector:
     app: logging-service
   ports:
-  - port: 80         # ClusterIP port
+  - port: 3006         # ClusterIP port
     targetPort: 3006   # Pod port
 
 
