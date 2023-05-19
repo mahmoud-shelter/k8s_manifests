@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: platform-prosecution-service-deployment
+  name: platform-radar-gateway-service-deployment
   namespace: dev
   labels:
-    app: platform-prosecution-service
+    app: platform-radar-gateway-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: platform-prosecution-service
+      app: platform-radar-gateway-service
   template:
     metadata:
       labels:
-        app: platform-prosecution-service
+        app: platform-radar-gateway-service
     spec:
       containers:
-        - name: platform-prosecution-service
+        - name: platform-radar-gateway-service
           image: IMAGE_NAME
           ports:
             - containerPort: 3005
 #           envFrom:
 #             - secretRef:
-#                 name: platform-prosecution-service
+#                 name: platform-radar-gateway-service
