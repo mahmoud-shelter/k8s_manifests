@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: logging-service-deployment
+  name: platform-api-gateway-deployment
   namespace: dev
   labels:
-    app: logging-service
+    app: platform-api-gateway
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: logging-service
+      app: platform-api-gateway
   template:
     metadata:
       labels:
-        app: logging-service
+        app: platform-api-gateway
     spec:
       containers:
-        - name: logging-service
+        - name: platform-api-gateway
           image: IMAGE_NAME
           ports:
-            - containerPort: 3006
+            - containerPort: 3000
 #           envFrom:
 #             - secretRef:
-#                 name: logging-service
+#                 name: platform-api-gateway

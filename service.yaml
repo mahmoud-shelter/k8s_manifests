@@ -1,17 +1,17 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: logging-service
+  name: platform-api-gateway
   namespace: dev
   labels:
-    service: logging-service
+    service: platform-api-gateway
 spec:
   type: NodePort
   selector:
-    app: logging-service
+    app: platform-api-gateway
   ports:
-  - port: 3006         # ClusterIP port
-    targetPort: 3006   # Pod port
+  - port: 3000         # ClusterIP port
+    targetPort: 3000   # Pod port
 
 
 

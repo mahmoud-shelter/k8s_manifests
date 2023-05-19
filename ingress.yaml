@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: logging-service
+  name: platform-api-gateway
   namespace: dev
   annotations:
     kubernetes.io/ingress.class: alb
@@ -25,13 +25,13 @@ spec:
       port:
         number: 80
   rules:
-    - host: logging-service.shelter-technology.com
+    - host: platform-api-gateway.shelter-technology.com
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: logging-service
+                name: platform-api-gateway
                 port:
-                  number: 3006
+                  number: 3000
