@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: platform-notification-service-deployment
+  name: platform-prosecution-service-deployment
   namespace: dev
   labels:
-    app: platform-notification-service
+    app: platform-prosecution-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: platform-notification-service
+      app: platform-prosecution-service
   template:
     metadata:
       labels:
-        app: platform-notification-service
+        app: platform-prosecution-service
     spec:
       containers:
-        - name: platform-notification-service
+        - name: platform-prosecution-service
           image: IMAGE_NAME
           ports:
             - containerPort: 3005
 #           envFrom:
 #             - secretRef:
-#                 name: platform-notification-service
+#                 name: platform-prosecution-service
