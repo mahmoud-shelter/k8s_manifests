@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: platform-api-gateway
+  name: platform-basic-data-service
   namespace: dev
   annotations:
     kubernetes.io/ingress.class: alb
@@ -25,13 +25,13 @@ spec:
       port:
         number: 80
   rules:
-    - host: platform-api-gateway.shelter-technology.com
+    - host: platform-basic-data-service.shelter-technology.com
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: platform-api-gateway
+                name: platform-basic-data-service
                 port:
                   number: 3000
