@@ -6,11 +6,11 @@ metadata:
   labels:
     service: platform-api-gateway
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: platform-api-gateway
   ports:
-  - port: 3000         # ClusterIP port
+  - port: 80         # ClusterIP port
     targetPort: 3000   # Pod port
 
 

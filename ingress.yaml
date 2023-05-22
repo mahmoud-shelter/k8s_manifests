@@ -1,37 +1,62 @@
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: platform-api-gateway
+#   namespace: dev
+#   annotations:
+#     kubernetes.io/ingress.class: alb
+#     alb.ingress.kubernetes.io/scheme: internet-facing
+#     alb.ingress.kubernetes.io/target-type: instance
+#     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:eu-west-2:053728744134:certificate/8d59a8e6-49fc-4461-bc35-bb40837938dd
+#     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+#     alb.ingress.kubernetes.io/actions.ssl-redirect: |
+#       [
+#         {"Type": "redirect", "RedirectConfig": { "Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}
+#       ]
+#     alb.ingress.kubernetes.io/subnets: subnet-09b18ebfe5368d0f1,subnet-01c1a0954f0401620,subnet-00e01b6011f5c2825
+#     alb.ingress.kubernetes.io/security-groups: sg-04f87c8037e006694,sg-0cfd8e21a5f1e51f9
+#     alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=300
+#     alb.ingress.kubernetes.io/healthcheck-interval-seconds: '300'
+#     alb.ingress.kubernetes.io/group.name: shelter-alb
+# spec:
+#   defaultBackend:
+#     service:
+#       name: ssl-redirect
+#       port:
+#         number: 80
+#   rules:
+#     - host: platform-api-gateway.shelter-technology.com
+#       http:
+#         paths:
+#           - path: /
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: platform-api-gateway
+#                 port:
+#                   number: 3000
+
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: platform-api-gateway
   namespace: dev
   annotations:
-    kubernetes.io/ingress.class: alb
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/target-type: instance
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:eu-west-2:053728744134:certificate/8d59a8e6-49fc-4461-bc35-bb40837938dd
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
-    alb.ingress.kubernetes.io/actions.ssl-redirect: |
-      [
-        {"Type": "redirect", "RedirectConfig": { "Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}
-      ]
-    alb.ingress.kubernetes.io/subnets: subnet-09b18ebfe5368d0f1,subnet-01c1a0954f0401620,subnet-00e01b6011f5c2825
-    alb.ingress.kubernetes.io/security-groups: sg-04f87c8037e006694,sg-0cfd8e21a5f1e51f9
-    alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=300
-    alb.ingress.kubernetes.io/healthcheck-interval-seconds: '300'
-    alb.ingress.kubernetes.io/group.name: shelter-alb
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: "*"
 spec:
-  defaultBackend:
-    service:
-      name: ssl-redirect
-      port:
-        number: 80
+  ingressClassName: nginx
   rules:
-    - host: platform-api-gateway.shelter-technology.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: platform-api-gateway
-                port:
-                  number: 3000
+   - host: platform-api-gateway.shelter-technology.com
+     http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: logging-service
+            port:
+              number: 80
