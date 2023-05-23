@@ -6,7 +6,7 @@ metadata:
   labels:
     service: platform-basic-data-service
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: platform-basic-data-service
   ports:

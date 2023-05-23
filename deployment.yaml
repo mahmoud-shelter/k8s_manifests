@@ -20,6 +20,6 @@ spec:
           image: IMAGE_NAME
           ports:
             - containerPort: 3001
-#           envFrom:
-#             - secretRef:
-#                 name: platform-basic-data-service
+          envFrom:
+            - secretRef:
+                name: platform-basic-data-service
