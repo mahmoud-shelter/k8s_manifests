@@ -10,7 +10,7 @@ spec:
   selector:
     app: platform-basic-data-service
   ports:
-  - port: 3001         # ClusterIP port
+  - port: 80         # ClusterIP port
     targetPort: 3001   # Pod port
 
 
