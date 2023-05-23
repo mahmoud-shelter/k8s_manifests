@@ -52,7 +52,7 @@ spec:
    - host: platform-radar-gateway-service.shelter-technology.com
      http:
       paths:
-      - path: /
+      - path: /*
         pathType: Prefix
         backend:
           service:
