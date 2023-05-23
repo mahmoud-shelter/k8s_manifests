@@ -60,4 +60,4 @@ spec:
           service:
             name: platform-api-gateway
             port:
-              number: 3000
+              number: 80
