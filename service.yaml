@@ -6,11 +6,11 @@ metadata:
   labels:
     service: platform-notification-service
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: platform-notification-service
   ports:
-  - port: 3005         # ClusterIP port
+  - port: 80         # ClusterIP port
     targetPort: 3005   # Pod port
 
 
