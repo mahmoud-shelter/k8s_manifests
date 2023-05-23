@@ -5,12 +5,12 @@ metadata:
   namespace: dev
   labels:
     service: platform-api-gateway
-spec:
+spec:  
   type: ClusterIP
   selector:
     app: platform-api-gateway
   ports:
-  - port: 80         # ClusterIP port
+  - port: 3000         # ClusterIP port
     targetPort: 3000   # Pod port
 
 
