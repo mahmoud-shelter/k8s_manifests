@@ -6,11 +6,11 @@ metadata:
   labels:
     service: platform-review-service
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: platform-review-service
   ports:
-  - port: 3002         # ClusterIP port
+  - port: 80         # ClusterIP port
     targetPort: 3002   # Pod port
 
 
