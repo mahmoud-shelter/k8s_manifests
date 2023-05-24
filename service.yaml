@@ -6,12 +6,12 @@ metadata:
   labels:
     service: platform-prosecution-service
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: platform-prosecution-service
   ports:
-  - port: 3005         # ClusterIP port
-    targetPort: 3005   # Pod port
+  - port: 80         # ClusterIP port
+    targetPort: 3004  # Pod port
 
 
 

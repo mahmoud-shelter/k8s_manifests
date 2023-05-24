@@ -19,7 +19,7 @@ spec:
         - name: platform-prosecution-service
           image: IMAGE_NAME
           ports:
-            - containerPort: 3005
-#           envFrom:
-#             - secretRef:
-#                 name: platform-prosecution-service
+            - containerPort: 3004
+          envFrom:
+            - secretRef:
+                name: platform-prosecution-service
