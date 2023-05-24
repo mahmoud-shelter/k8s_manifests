@@ -20,6 +20,6 @@ spec:
           image: IMAGE_NAME
           ports:
             - containerPort: 3005
-          # envFrom:
-          #   - secretRef:
-          #       name: platform-notification-service
+          envFrom:
+            - secretRef:
+                name: platform-notification-service
