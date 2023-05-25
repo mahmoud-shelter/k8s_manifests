@@ -19,7 +19,7 @@ spec:
         - name: platform-radar-gateway-service
           image: IMAGE_NAME
           ports:
-            - containerPort: 3005
+            - containerPort: 3003
           envFrom:
             - secretRef:
                 name: platform-radar-gateway-service

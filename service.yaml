@@ -11,7 +11,7 @@ spec:
     app: platform-radar-gateway-service
   ports:
   - port: 80         # ClusterIP port
-    targetPort: 3005   # Pod port
+    targetPort: 3003   # Pod port
 
 
 
