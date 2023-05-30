@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: platform-notification-service-deployment
+  name: master-logistics-back-end-deployment
   namespace: dev
   labels:
-    app: platform-notification-service
+    app: master-logistics-back-end
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: platform-notification-service
+      app: master-logistics-back-end
   template:
     metadata:
       labels:
-        app: platform-notification-service
+        app: master-logistics-back-end
     spec:
       containers:
-        - name: platform-notification-service
+        - name: master-logistics-back-end
           image: IMAGE_NAME
           ports:
-            - containerPort: 3005
+            - containerPort: 3650
           envFrom:
             - secretRef:
-                name: platform-notification-service
+                name: master-logistics-back-end
