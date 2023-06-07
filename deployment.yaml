@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: master-logistics-back-end-deployment
+  name: nos-back-end-prod-deployment
   namespace: dev
   labels:
-    app: master-logistics-back-end
+    app: nos-back-end-prod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: master-logistics-back-end
+      app: nos-back-end-prod
   template:
     metadata:
       labels:
-        app: master-logistics-back-end
+        app: nos-back-end-prod
     spec:
       containers:
-        - name: master-logistics-back-end
+        - name: nos-back-end-prod
           image: IMAGE_NAME
           ports:
-            - containerPort: 4090
+            - containerPort: 3000
           envFrom:
             - secretRef:
-                name: master-logistics-back-end
+                name: nos-back-end-prod
