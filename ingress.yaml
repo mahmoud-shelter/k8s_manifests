@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: nos-back-end-prod
+  name: nos-back-end-dev
   namespace: dev
   annotations:
     # kubernetes.io/ingress.class: nginx
@@ -12,13 +12,13 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-   - host: prod-nosglobalexpress.shelter-technology.com 
+   - host: staging-nosglobalexpress.shelter-technology.com 
      http:
       paths:
       - path: /*
         pathType: Prefix
         backend:
           service:
-            name: nos-back-end-prod
+            name: nos-back-end-dev
             port:
               number: 80
