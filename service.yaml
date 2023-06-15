@@ -11,7 +11,7 @@ spec:
     app: nos-back-end-dev
   ports:
   - port: 80         # ClusterIP port
-    targetPort: 3000   # Pod port
+    targetPort: 8186   # Pod port
 
 
 
