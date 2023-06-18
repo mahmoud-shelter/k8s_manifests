@@ -19,7 +19,7 @@ spec:
         - name: nos-back-end-dev
           image: IMAGE_NAME
           ports:
-            - containerPort: 8186
+            - containerPort: 3650
           envFrom:
             - secretRef:
                 name: nos-back-end-dev
