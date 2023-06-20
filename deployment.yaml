@@ -19,7 +19,7 @@ spec:
         - name: nos-back-end-prod
           image: IMAGE_NAME
           ports:
-            - containerPort: 3000
+            - containerPort: 7096
           envFrom:
             - secretRef:
                 name: nos-back-end-prod
