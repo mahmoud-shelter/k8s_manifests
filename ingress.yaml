@@ -12,7 +12,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-   - host: api.nosglobalexpress.com
+   - host: test.nosglobalexpress.com
      http:
       paths:
       - path: /*
