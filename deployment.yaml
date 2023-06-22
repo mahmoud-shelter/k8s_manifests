@@ -23,3 +23,10 @@ spec:
           envFrom:
             - secretRef:
                 name: nos-back-end-prod
+          volumeMounts:
+            - name: my-volume
+              mountPath: /usr/files
+      volumes:
+        - name: my-volume
+          persistentVolumeClaim:
+            claimName: nos-back-end-prod-pvc
