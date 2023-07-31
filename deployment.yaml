@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: platform-radar-gateway-service-deployment
+  name: platform-reporting-service
   namespace: dev
   labels:
-    app: platform-radar-gateway-service
+    app: platform-reporting-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: platform-radar-gateway-service
+      app: platform-reporting-service
   template:
     metadata:
       labels:
-        app: platform-radar-gateway-service
+        app: platform-reporting-service
     spec:
       containers:
-        - name: platform-radar-gateway-service
+        - name: platform-reporting-service
           image: IMAGE_NAME
           ports:
-            - containerPort: 3003
+            - containerPort: 8080
           envFrom:
             - secretRef:
-                name: platform-radar-gateway-service
+                name: platform-reporting-service
