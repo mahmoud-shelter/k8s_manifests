@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: platform-reporting-service
+  name: umin-sql-dev
   namespace: dev
   labels:
-    app: platform-reporting-service
+    app: umin-sql-dev
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: platform-reporting-service
+      app: umin-sql-dev
   template:
     metadata:
       labels:
-        app: platform-reporting-service
+        app: umin-sql-dev
     spec:
       containers:
-        - name: platform-reporting-service
+        - name: umin-sql-dev
           image: IMAGE_NAME
           ports:
-            - containerPort: 8080
+            - containerPort: 3000
           envFrom:
             - secretRef:
-                name: platform-reporting-service
+                name: umin-sql-dev

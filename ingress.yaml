@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: platform-reporting-service
+  name: umin-sql-dev
   namespace: dev
   annotations:
     # kubernetes.io/ingress.class: nginx
@@ -11,13 +11,13 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-   - host: platform-reporting-service.shelter-technology.com
+   - host: dev-api.um-in.com
      http:
       paths:
       - path: /*
         pathType: Prefix
         backend:
           service:
-            name: platform-reporting-service
+            name: umin-sql-dev
             port:
               number: 80

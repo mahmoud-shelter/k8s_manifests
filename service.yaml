@@ -1,17 +1,17 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: platform-reporting-service
+  name: umin-sql-dev
   namespace: dev
   labels:
-    service: platform-reporting-service
+    service: umin-sql-dev
 spec:
   type: ClusterIP
   selector:
-    app: platform-reporting-service
+    app: umin-sql-dev
   ports:
   - port: 80         # ClusterIP port
-    targetPort: 8080   # Pod port
+    targetPort: 3000   # Pod port
 
 
 
