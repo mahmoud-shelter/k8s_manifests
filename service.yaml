@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: umin-sql-dev
+  name: umin-sql-prod
   namespace: dev
   labels:
-    service: umin-sql-dev
+    service: umin-sql-prod
 spec:
   type: ClusterIP
   selector:
-    app: umin-sql-dev
+    app: umin-sql-prod
   ports:
   - port: 80         # ClusterIP port
     targetPort: 3000   # Pod port

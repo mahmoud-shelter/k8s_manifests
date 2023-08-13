@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: umin-sql-dev
+  name: umin-sql-prod
   namespace: dev
   labels:
-    app: umin-sql-dev
+    app: umin-sql-prod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: umin-sql-dev
+      app: umin-sql-prod
   template:
     metadata:
       labels:
-        app: umin-sql-dev
+        app: umin-sql-prod
     spec:
       containers:
-        - name: umin-sql-dev
+        - name: umin-sql-prod
           image: IMAGE_NAME
           ports:
             - containerPort: 3000
           envFrom:
             - secretRef:
-                name: umin-sql-dev
+                name: umin-sql-prod
