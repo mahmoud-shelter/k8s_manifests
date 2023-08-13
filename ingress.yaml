@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: umin-sql-prod
+  name: um-in-website-prod
   namespace: dev
   annotations:
     # kubernetes.io/ingress.class: nginx
@@ -11,13 +11,13 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-   - host: prod-api.um-in.com
+   - host: site.um-in.com
      http:
       paths:
       - path: /*
         pathType: Prefix
         backend:
           service:
-            name: umin-sql-prod
+            name: um-in-website-prod
             port:
               number: 80

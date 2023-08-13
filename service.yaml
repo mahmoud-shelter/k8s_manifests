@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: umin-sql-prod
+  name: um-in-website-prod
   namespace: dev
   labels:
-    service: umin-sql-prod
+    service: um-in-website-prod
 spec:
   type: ClusterIP
   selector:
-    app: umin-sql-prod
+    app: um-in-website-prod
   ports:
   - port: 80         # ClusterIP port
     targetPort: 3000   # Pod port
