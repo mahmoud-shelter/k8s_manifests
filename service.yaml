@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: um-in-website-prod
+  name: um-in-website-dev
   namespace: dev
   labels:
-    service: um-in-website-prod
+    service: um-in-website-dev
 spec:
   type: ClusterIP
   selector:
-    app: um-in-website-prod
+    app: um-in-website-dev
   ports:
   - port: 80         # ClusterIP port
     targetPort: 3000   # Pod port
