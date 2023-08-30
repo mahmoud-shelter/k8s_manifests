@@ -11,7 +11,7 @@ spec:
     app: absi-backend-prod
   ports:
   - port: 80         # ClusterIP port
-    targetPort: 3007   # Pod port
+    targetPort: 3000   # Pod port
 
 
 

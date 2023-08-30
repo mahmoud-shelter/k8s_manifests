@@ -19,7 +19,7 @@ spec:
         - name: absi-backend-prod
           image: IMAGE_NAME
           ports:
-            - containerPort: 3007
+            - containerPort: 3000
           envFrom:
             - secretRef:
                 name: absi-backend-prod
