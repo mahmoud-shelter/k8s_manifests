@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: um-in-website-prod
+  name: nos-nuxt-website-prod
   namespace: dev
   labels:
-    service: um-in-website-prod
+    service: nos-nuxt-website-prod
 spec:
   type: ClusterIP
   selector:
-    app: um-in-website-prod
+    app: nos-nuxt-website-prod
   ports:
   - port: 80         # ClusterIP port
     targetPort: 3000   # Pod port
