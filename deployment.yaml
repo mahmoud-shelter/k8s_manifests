@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nos-nuxt-website-prod
+  name: nos-nuxt-website-dev
   namespace: dev
   labels:
-    app: nos-nuxt-website-prod
+    app: nos-nuxt-website-dev
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nos-nuxt-website-prod
+      app: nos-nuxt-website-dev
   template:
     metadata:
       labels:
-        app: nos-nuxt-website-prod
+        app: nos-nuxt-website-dev
     spec:
       containers:
-        - name: nos-nuxt-website-prod
+        - name: nos-nuxt-website-dev
           image: IMAGE_NAME
           ports:
             - containerPort: 3000
           envFrom:
             - secretRef:
-                name: nos-nuxt-website-prod
+                name: nos-nuxt-website-dev
