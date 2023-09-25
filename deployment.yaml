@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: platform-basic-data-service-deployment
+  name: platform-basic-data-service
   namespace: dev
   labels:
     app: platform-basic-data-service
