@@ -39,7 +39,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: platform-api-gateway
+  name: platform-radar-gateway-service
   namespace: dev
   annotations:
     kubernetes.io/ingress.class: nginx
