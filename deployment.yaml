@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: logging-service-deployment
+  name: logging-service
   namespace: dev
   labels:
     app: logging-service
