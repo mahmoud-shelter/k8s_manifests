@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: platform-basic-data-service
-  namespace: dev
+  name: asg-statistics-backend-prod
+  namespace: prod
   labels:
-    app: platform-basic-data-service
+    app: asg-statistics-backend-prod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: platform-basic-data-service
+      app: asg-statistics-backend-prod
   template:
     metadata:
       labels:
-        app: platform-basic-data-service
+        app: asg-statistics-backend-prod
     spec:
       containers:
-        - name: platform-basic-data-service
+        - name: asg-statistics-backend-prod
           image: IMAGE_NAME
           ports:
-            - containerPort: 3001
+            - containerPort: 3000
           envFrom:
             - secretRef:
-                name: platform-basic-data-service
+                name: asg-statistics-backend-prod

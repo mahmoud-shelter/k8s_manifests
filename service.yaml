@@ -1,17 +1,17 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: platform-basic-data-service
-  namespace: dev
+  name: asg-statistics-backend-prod
+  namespace: prod
   labels:
-    service: platform-basic-data-service
+    service: asg-statistics-backend-prod
 spec:
   type: ClusterIP
   selector:
-    app: platform-basic-data-service
+    app: asg-statistics-backend-prod
   ports:
-  - port: 3001         # ClusterIP port
-    targetPort: 3001   # Pod port
+  - port: 80         # ClusterIP port
+    targetPort: 3000   # Pod port
 
 
 

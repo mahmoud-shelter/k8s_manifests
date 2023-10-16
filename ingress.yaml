@@ -1,8 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: platform-basic-data-service
-  namespace: dev
+  name: asg-statistics-backend-prod
+  namespace: prod
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
@@ -11,13 +11,13 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-   - host: platform-basic-data-service.shelter-technology.com
+   - host: asg-statistics-backend.shelter-technology.com
      http:
       paths:
       - path: /*
         pathType: Prefix
         backend:
           service:
-            name: platform-basic-data-service
+            name: asg-statistics-backend-prod
             port:
               number: 80
