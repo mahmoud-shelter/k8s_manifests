@@ -11,7 +11,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-   - host: asg-statistics-backend.shelter-technology.com
+   - host: asg-dashboard.shelter-technology.com
      http:
       paths:
       - path: /*

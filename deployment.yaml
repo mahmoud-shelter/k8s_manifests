@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: asg-statistics-backend-prod
+  name: asg-statistics-dashboard-prod
   namespace: dev
   labels:
-    app: asg-statistics-backend-prod
+    app: asg-statistics-dashboard-prod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: asg-statistics-backend-prod
+      app: asg-statistics-dashboard-prod
   template:
     metadata:
       labels:
-        app: asg-statistics-backend-prod
+        app: asg-statistics-dashboard-prod
     spec:
       containers:
-        - name: asg-statistics-backend-prod
+        - name: asg-statistics-dashboard-prod
           image: IMAGE_NAME
           ports:
-            - containerPort: 3000
-          envFrom:
-            - secretRef:
-                name: asg-statistics-backend-prod
+            - containerPort: 80
+          # envFrom:
+          #   - secretRef:
+          #       name: asg-statistics-dashboard-prod
