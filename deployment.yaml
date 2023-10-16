@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: asg-statistics-backend-prod
-  namespace: prod
+  namespace: dev
   labels:
     app: asg-statistics-backend-prod
 spec:
