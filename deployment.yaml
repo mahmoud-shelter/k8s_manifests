@@ -23,3 +23,10 @@ spec:
           envFrom:
             - secretRef:
                 name: absi-backend-prod
+          resources:
+            requests:
+              memory: "4Gi"
+              cpu: "2"
+            limits: 
+              memory: "4Gi"
+              cpu: "2"
