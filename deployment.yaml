@@ -20,6 +20,6 @@ spec:
           image: IMAGE_NAME
           ports:
             - containerPort: 3000
-          envFrom:
-            - secretRef:
-                name: um-in-website-dev
+          # envFrom:
+          #   - secretRef:
+          #       name: um-in-website-dev
