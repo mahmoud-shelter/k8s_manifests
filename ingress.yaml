@@ -11,7 +11,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-   - host: dev.um-in.com
+   - host: dev-site.um-in.com
      http:
       paths:
       - path: /*
