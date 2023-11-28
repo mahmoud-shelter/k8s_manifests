@@ -11,7 +11,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-   - host: absi-apis.shelter-technology.com
+   - host: absi-dev.shelter-technology.com
      http:
       paths:
       - path: /*
