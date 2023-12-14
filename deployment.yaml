@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: APP_NAME-deployment
-  namespace: NAMESPACE_NAME
+  name: nos-backend-service-dev-deployment
+  namespace: dev
   labels:
-    app: APP_NAME
+    app: nos-backend-service-dev
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: APP_NAME
+      app: nos-backend-service-dev
   template:
     metadata:
       labels:
-        app: APP_NAME
+        app: nos-backend-service-dev
     spec:
       containers:
-      - name: APP_NAME
+      - name: nos-backend-service-dev
         image: IMAGE_NAME
         ports:
-        - containerPort: 80
+        - containerPort: 8000
         envFrom:
         - secretRef:
-            name: APP_NAME 
+            name: nos-backend-service-dev
