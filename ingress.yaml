@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-   - host: prodapi.nosglobalexpress.com
+   - host: prod-api.nosglobalexpress.com
      http:
       paths:
       - path: /*
