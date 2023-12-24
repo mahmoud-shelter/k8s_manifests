@@ -11,4 +11,4 @@ spec:
     app: nos-backend-service-stg
   ports:
   - port: 80         # ClusterIP port
-    targetPort: 8000   # Pod port
+    targetPort: 3000   # Pod port

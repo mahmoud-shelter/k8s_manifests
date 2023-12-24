@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nos-backend-service-stg-deployment
+  name: nos-dashboard-react-stg-deployment
   namespace: dev
   labels:
-    app: nos-backend-service-stg
+    app: nos-dashboard-react-stg
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nos-backend-service-stg
+      app: nos-dashboard-react-stg
   template:
     metadata:
       labels:
-        app: nos-backend-service-stg
+        app: nos-dashboard-react-stg
     spec:
       containers:
-      - name: nos-backend-service-stg
+      - name: nos-dashboard-react-stg
         image: IMAGE_NAME
         ports:
-        - containerPort: 8000
+        - containerPort: 3000
         envFrom:
         - secretRef:
-            name: nos-backend-service-stg
+            name: nos-dashboard-react-stg
