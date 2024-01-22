@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: wee_in_backend-dev
+  name: wee-in-backend-dev
   namespace: dev
   labels:
-    service: wee_in_backend-dev
+    service: wee-in-backend-dev
 spec:
   type: ClusterIP
   selector:
-    app: wee_in_backend-dev
+    app: wee-in-backend-dev
   ports:
   - port: 80         # ClusterIP port
     targetPort: 8000   # Pod port

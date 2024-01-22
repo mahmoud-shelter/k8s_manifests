@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wee_in_backend-dev-deployment
+  name: wee-in-backend-dev-deployment
   namespace: dev
   labels:
-    app: wee_in_backend-dev
+    app: wee-in-backend-dev
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: wee_in_backend-dev
+      app: wee-in-backend-dev
   template:
     metadata:
       labels:
-        app: wee_in_backend-dev
+        app: wee-in-backend-dev
     spec:
       containers:
-      - name: wee_in_backend-dev
+      - name: wee-in-backend-dev
         image: IMAGE_NAME
         ports:
         - containerPort: 8000
         envFrom:
         - secretRef:
-            name: wee_in_backend-dev
+            name: wee-in-backend-dev
