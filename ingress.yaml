@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: nos-backend-service-stg
+  name: wee_in_backend-dev
   namespace: dev
   annotations:
     nginx.ingress.kubernetes.io/use-regex: "true"
@@ -9,13 +9,13 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-   - host: nos-stg-api.shelter-technology.com
+   - host: wee-dev-api.shelter-technology.com
      http:
       paths:
       - path: /*
         pathType: Prefix
         backend:
           service:
-            name: nos-backend-service-stg
+            name: wee_in_backend-dev
             port:
               number: 80
