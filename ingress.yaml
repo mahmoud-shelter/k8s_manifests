@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-   - host: prod-api.nosglobalexpress.com
+   - host: nos-prod-api.shelter-technology.com
      http:
       paths:
       - path: /*
