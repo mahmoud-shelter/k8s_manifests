@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nos-dashboard-react-stg
+  name: nos-tracking-website-stg
   namespace: dev
   labels:
-    service: nos-dashboard-react-stg
+    service: nos-tracking-website-stg
 spec:
   type: ClusterIP
   selector:
-    app: nos-dashboard-react-stg
+    app: nos-tracking-website-stg
   ports:
   - port: 80         # ClusterIP port
     targetPort: 3000   # Pod port

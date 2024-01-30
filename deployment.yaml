@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nos-dashboard-react-stg-deployment
+  name: nos-tracking-website-stg-deployment
   namespace: dev
   labels:
-    app: nos-dashboard-react-stg
+    app: nos-tracking-website-stg
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nos-dashboard-react-stg
+      app: nos-tracking-website-stg
   template:
     metadata:
       labels:
-        app: nos-dashboard-react-stg
+        app: nos-tracking-website-stg
     spec:
       containers:
-      - name: nos-dashboard-react-stg
+      - name: nos-tracking-website-stg
         image: IMAGE_NAME
         ports:
         - containerPort: 3000
         envFrom:
         - secretRef:
-            name: nos-dashboard-react-stg
+            name: nos-tracking-website-stg
