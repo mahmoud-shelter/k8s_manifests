@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wee-in-backend-dev-deployment
+  name: wee-in-celery-flower
   namespace: dev
   labels:
-    app: wee-in-backend-dev
+    app: wee-in-celery-flower
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: wee-in-backend-dev
+      app: wee-in-celery-flower
   template:
     metadata:
       labels:
-        app: wee-in-backend-dev
+        app: wee-in-celery-flower
     spec:
       containers:
-      - name: wee-in-backend-dev
-        image: IMAGE_NAME
+      - name: wee-in-celery-flower
+        image: mher/flower
         ports:
-        - containerPort: 8000
-        envFrom:
-        - secretRef:
-            name: wee-in-backend-dev
+        - containerPort: 5555
+        env:
+        - name: CELERY_BROKER_URL
+          value: "redis://redis-master.redis.svc.cluster.local:6379/0"
