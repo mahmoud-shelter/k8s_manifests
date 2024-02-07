@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wee-in-backend-dev-deployment
+  name: wee-in-backend-dev-beat-deployment
   namespace: dev
   labels:
     app: wee-in-backend-dev
@@ -18,7 +18,7 @@ spec:
       containers:
       - name: wee-in-backend-dev
         image: IMAGE_NAME
-        command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+        command: ["celery", "-A", "config", "beat", "--loglevel=info"]
         ports:
         - containerPort: 8000
         envFrom:
