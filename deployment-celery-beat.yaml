@@ -4,19 +4,19 @@ metadata:
   name: wee-in-backend-dev-beat-deployment
   namespace: dev
   labels:
-    app: wee-in-backend-dev
+    app: wee-in-backend-dev-beat
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: wee-in-backend-dev
+      app: wee-in-backend-dev-beat
   template:
     metadata:
       labels:
-        app: wee-in-backend-dev
+        app: wee-in-backend-dev-beat
     spec:
       containers:
-      - name: wee-in-backend-dev
+      - name: wee-in-backend-dev-beat
         image: IMAGE_NAME
         command: ["celery", "-A", "config", "beat", "--loglevel=info"]
         ports:

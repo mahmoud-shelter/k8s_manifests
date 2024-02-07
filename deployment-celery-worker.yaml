@@ -4,19 +4,19 @@ metadata:
   name: wee-in-backend-dev-worker-deployment
   namespace: dev
   labels:
-    app: wee-in-backend-dev
+    app: wee-in-backend-dev-worker
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: wee-in-backend-dev
+      app: wee-in-backend-dev-worker
   template:
     metadata:
       labels:
-        app: wee-in-backend-dev
+        app: wee-in-backend-dev-worker
     spec:
       containers:
-      - name: wee-in-backend-dev
+      - name: wee-in-backend-dev-worker
         image: IMAGE_NAME
         command: ["celery", "-A", "config", "worker", "--loglevel=info"]
         ports:
