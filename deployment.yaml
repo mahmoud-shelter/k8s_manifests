@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: la7-backend-stg-deployment
+  name: la7-website-stg-deployment
   namespace: dev
   labels:
-    app: la7-backend-stg
+    app: la7-website-stg
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: la7-backend-stg
+      app: la7-website-stg
   template:
     metadata:
       labels:
-        app: la7-backend-stg
+        app: la7-website-stg
     spec:
       containers:
-      - name: la7-backend-stg
+      - name: la7-website-stg
         image: IMAGE_NAME
         ports:
-        - containerPort: 8000
+        - containerPort: 3000
         envFrom:
         - secretRef:
-            name: la7-backend-stg
+            name: la7-website-stg
