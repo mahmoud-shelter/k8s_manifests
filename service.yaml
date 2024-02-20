@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nos-backend-service-prod
+  name: 5fits-backend-stg
   namespace: dev
   labels:
-    service: nos-backend-service-prod
+    service: 5fits-backend-stg
 spec:
   type: ClusterIP
   selector:
-    app: nos-backend-service-prod
+    app: 5fits-backend-stg
   ports:
   - port: 80         # ClusterIP port
     targetPort: 8000   # Pod port
