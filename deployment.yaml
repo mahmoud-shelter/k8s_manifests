@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: 5fits-backend-stg-deployment
+  name: la7-backend-stg-deployment
   namespace: dev
   labels:
-    app: 5fits-backend-stg
+    app: la7-backend-stg
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: 5fits-backend-stg
+      app: la7-backend-stg
   template:
     metadata:
       labels:
-        app: 5fits-backend-stg
+        app: la7-backend-stg
     spec:
       containers:
-      - name: 5fits-backend-stg
+      - name: la7-backend-stg
         image: IMAGE_NAME
         ports:
         - containerPort: 8000
         envFrom:
         - secretRef:
-            name: 5fits-backend-stg
+            name: la7-backend-stg

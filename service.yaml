@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: 5fits-backend-stg
+  name: la7-backend-stg
   namespace: dev
   labels:
-    service: 5fits-backend-stg
+    service: la7-backend-stg
 spec:
   type: ClusterIP
   selector:
-    app: 5fits-backend-stg
+    app: la7-backend-stg
   ports:
   - port: 80         # ClusterIP port
     targetPort: 8000   # Pod port
