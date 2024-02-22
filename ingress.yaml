@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-   - host: nos-stg-track.shelter-technology.com
+   - host: nos-track-stg-dashboard.shelter-technology.com
      http:
       paths:
       - path: /*
