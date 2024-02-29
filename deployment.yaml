@@ -74,7 +74,7 @@ spec:
       containers:
       - name: la7-backend-stg-beat
         image: IMAGE_NAME
-        command: ["celery", "-A", "Academy_crm", "beat", "--loglevel=info"]
+        command: ["celery", "-A", "Academy_crm", "beat", "--loglevel=info","-S","django"]
         ports:
         - containerPort: 8000
         envFrom:
