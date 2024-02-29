@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: wee-in-celery-flower
+  name: la7-celery-flower
   namespace: dev
   labels:
-    service: wee-in-celery-flower
+    service: la7-celery-flower
 spec:
   type: ClusterIP
   selector:
-    app: wee-in-celery-flower
+    app: la7-celery-flower
   ports:
   - port: 80         # ClusterIP port
     targetPort: 5555   # Pod port

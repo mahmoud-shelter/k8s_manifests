@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: wee-in-celery-flower
+  name: la7-celery-flower
   namespace: dev
   annotations:
     nginx.ingress.kubernetes.io/use-regex: "true"
@@ -9,13 +9,13 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-   - host: wee-in-flower.shelter-technology.com
+   - host: la7-flower.shelter-technology.com
      http:
       paths:
       - path: /*
         pathType: Prefix
         backend:
           service:
-            name: wee-in-celery-flower
+            name: la7-celery-flower
             port:
               number: 80
