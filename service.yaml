@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nos-dashboard-react-prod
+  name: nos-doc-api
   namespace: dev
   labels:
-    service: nos-dashboard-react-prod
+    service: nos-doc-api
 spec:
   type: ClusterIP
   selector:
-    app: nos-dashboard-react-prod
+    app: nos-doc-api
   ports:
   - port: 80         # ClusterIP port
     targetPort: 3000   # Pod port

@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: nos-dashboard-react-prod
+  name: nos-doc-api
   namespace: dev
   annotations:
     nginx.ingress.kubernetes.io/use-regex: "true"
@@ -9,13 +9,13 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-   - host: nos-prod-dashboard.shelter-technology.com
+   - host: nos-doc-api.shelter-technology.com
      http:
       paths:
       - path: /*
         pathType: Prefix
         backend:
           service:
-            name: nos-dashboard-react-prod
+            name: nos-doc-api
             port:
               number: 80

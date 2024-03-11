@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nos-dashboard-react-prod-deployment
+  name: nos-doc-api-deployment
   namespace: dev
   labels:
-    app: nos-dashboard-react-prod
+    app: nos-doc-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nos-dashboard-react-prod
+      app: nos-doc-api
   template:
     metadata:
       labels:
-        app: nos-dashboard-react-prod
+        app: nos-doc-api
     spec:
       containers:
-      - name: nos-dashboard-react-prod
+      - name: nos-doc-api
         image: IMAGE_NAME
         ports:
         - containerPort: 3000
         envFrom:
         - secretRef:
-            name: nos-dashboard-react-prod
+            name: nos-doc-api
