@@ -73,7 +73,7 @@ spec:
       containers:
       - name: nos-backend-service-stg-beat
         image: IMAGE_NAME
-        command: ["celery", "-A", "config", "beat", "--loglevel=info","-S","django"]
+        command: ["celery", "-A", "config", "beat", "--loglevel=info"]
         ports:
         - containerPort: 8000
         envFrom:
