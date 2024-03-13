@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: la7-celery-flower
+  name: nos-celery-flower
   namespace: dev
   labels:
-    app: la7-celery-flower
+    app: nos-celery-flower
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: la7-celery-flower
+      app: nos-celery-flower
   template:
     metadata:
       labels:
-        app: la7-celery-flower
+        app: nos-celery-flower
     spec:
       containers:
-      - name: la7-celery-flower
+      - name: nos-celery-flower
         image: mher/flower
         ports:
         - containerPort: 5555
         env:
         - name: CELERY_BROKER_URL
-          value: "redis://la7-redis.dev.svc.cluster.local:6379/0"
+          value: "redis://nos-redis.dev.svc.cluster.local:6379/0"

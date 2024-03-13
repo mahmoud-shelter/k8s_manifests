@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: la7-celery-flower
+  name: nos-celery-flower
   namespace: dev
   labels:
-    service: la7-celery-flower
+    service: nos-celery-flower
 spec:
   type: ClusterIP
   selector:
-    app: la7-celery-flower
+    app: nos-celery-flower
   ports:
   - port: 80         # ClusterIP port
     targetPort: 5555   # Pod port

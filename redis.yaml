@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: la7-redis
+  name: nos-redis
   namespace: dev
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: la7-redis
+      app: nos-redis
   template:
     metadata:
       labels:
-        app: la7-redis
+        app: nos-redis
     spec:
       containers:
-      - name: la7-redis
+      - name: nos-redis
         image: redis
         ports:
         - containerPort: 6379

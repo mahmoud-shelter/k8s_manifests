@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: la7-redis
+  name: nos-redis
   namespace: dev
 spec:
   selector:
-    app: la7-redis
+    app: nos-redis
   ports:
     - protocol: TCP
       port: 6379
