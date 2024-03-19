@@ -18,7 +18,62 @@ spec:
       containers:
       - name: wee-in-backend-dev
         image: IMAGE_NAME
-        command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+        ports:
+        - containerPort: 8000
+        envFrom:
+        - secretRef:
+            name: wee-in-backend-dev
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wee-in-backend-dev-worker-deployment
+  namespace: dev
+  labels:
+    app: wee-in-backend-dev-worker
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: wee-in-backend-dev-worker
+  template:
+    metadata:
+      labels:
+        app: wee-in-backend-dev-worker
+    spec:
+      containers:
+      - name: wee-in-backend-dev-worker
+        image: IMAGE_NAME
+        command: ["celery", "-A", "config", "worker", "--loglevel=info"]
+        ports:
+        - containerPort: 8000
+        envFrom:
+        - secretRef:
+            name: wee-in-backend-dev
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wee-in-backend-dev-beat-deployment
+  namespace: dev
+  labels:
+    app: wee-in-backend-dev-beat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wee-in-backend-dev-beat
+  template:
+    metadata:
+      labels:
+        app: wee-in-backend-dev-beat
+    spec:
+      containers:
+      - name: wee-in-backend-dev-beat
+        image: IMAGE_NAME
+        command: ["celery", "-A", "config", "beat", "--loglevel=info"]
         ports:
         - containerPort: 8000
         envFrom:
