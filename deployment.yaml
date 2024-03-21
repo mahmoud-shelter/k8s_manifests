@@ -23,3 +23,59 @@ spec:
         envFrom:
         - secretRef:
             name: 5fits-backend-stg
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: 5fits-backend-stg-worker-deployment
+  namespace: dev
+  labels:
+    app: 5fits-backend-stg-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: 5fits-backend-stg-worker
+  template:
+    metadata:
+      labels:
+        app: 5fits-backend-stg-worker
+    spec:
+      containers:
+      - name: 5fits-backend-stg-worker
+        image: IMAGE_NAME
+        command: ["celery", "-A", "config", "worker", "--loglevel=info"]
+        ports:
+        - containerPort: 8000
+        envFrom:
+        - secretRef:
+            name: 5fits-backend-stg
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: 5fits-backend-stg-beat-deployment
+  namespace: dev
+  labels:
+    app: 5fits-backend-stg-beat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: 5fits-backend-stg-beat
+  template:
+    metadata:
+      labels:
+        app: 5fits-backend-stg-beat
+    spec:
+      containers:
+      - name: 5fits-backend-stg-beat
+        image: IMAGE_NAME
+        command: ["celery", "-A", "config", "beat", "--loglevel=info"]
+        ports:
+        - containerPort: 8000
+        envFrom:
+        - secretRef:
+            name: 5fits-backend-stg
