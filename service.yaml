@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: la7-website-stg
+  name: wee-website-stg
   namespace: dev
   labels:
-    service: la7-website-stg
+    service: wee-website-stg
 spec:
   type: ClusterIP
   selector:
-    app: la7-website-stg
+    app: wee-website-stg
   ports:
   - port: 80         # ClusterIP port
     targetPort: 3000   # Pod port
