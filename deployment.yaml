@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: um-in-website-prod
-  namespace: dev
+  namespace: prod
   labels:
     app: um-in-website-prod
 spec:
@@ -23,3 +23,42 @@ spec:
           envFrom:
             - secretRef:
                 name: um-in-website-prod
+          resources:
+            requests:
+              memory: "4Gi"
+              cpu: "1"
+            limits: 
+              memory: "4Gi"
+              cpu: "2"
+      tolerations:
+        - key: "ENV"
+          operator: "Equal"
+          value: "PROD"
+          effect: "NoSchedule"
+
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: um-in-website-prod-hpa
+  namespace: prod
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: um-in-website-prod
+  minReplicas: 1
+  maxReplicas: 3
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: AverageValue
+          averageValue: 3Gi
