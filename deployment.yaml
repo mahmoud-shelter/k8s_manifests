@@ -25,7 +25,7 @@ spec:
                 name: um-in-website-prod
           resources:
             requests:
-              memory: "4Gi"
+              memory: "3Gi"
               cpu: "1"
             limits: 
               memory: "4Gi"
