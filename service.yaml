@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: fits-backend-stg
+  name: fits-frontend-stg
   namespace: dev
   labels:
-    service: 5fits-backend-stg
+    service: 5fits-frontend-stg
 spec:
   type: ClusterIP
   selector:
-    app: 5fits-backend-stg
+    app: 5fits-frontend-stg
   ports:
   - port: 80         # ClusterIP port
-    targetPort: 8000   # Pod port
+    targetPort: 3000   # Pod port

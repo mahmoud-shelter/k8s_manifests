@@ -1,23 +1,21 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: fits-backend-stg
+  name: fits-frontend-stg
   namespace: dev
   annotations:
-    nginx.org/client-max-body-size: "20m"
-    nginx.ingress.kubernetes.io/proxy-body-size: "20m"
     nginx.ingress.kubernetes.io/use-regex: "true"
     service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: "*"
 spec:
   ingressClassName: nginx
   rules:
-   - host: 5fits-stg-api.shelter-technology.com
+   - host: 5fits-dashboard.shelter-technology.com
      http:
       paths:
       - path: /*
         pathType: Prefix
         backend:
           service:
-            name: fits-backend-stg
+            name: fits-frontend-stg
             port:
               number: 80
