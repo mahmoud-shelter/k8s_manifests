@@ -23,3 +23,31 @@ spec:
         envFrom:
         - secretRef:
             name: nos-backend-service-prod
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nos-backend-service-prod-worker-deployment
+  namespace: dev
+  labels:
+    app: nos-backend-service-prod-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nos-backend-service-prod-worker
+  template:
+    metadata:
+      labels:
+        app: nos-backend-service-prod-worker
+    spec:
+      containers:
+      - name: nos-backend-service-prod-worker
+        image: IMAGE_NAME
+        command: ["celery", "-A", "config", "worker", "--loglevel=info"]
+        ports:
+        - containerPort: 8000
+        envFrom:
+        - secretRef:
+            name: nos-backend-service-prod
