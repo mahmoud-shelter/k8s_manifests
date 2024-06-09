@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: nos-backend-service-prod
-  namespace: dev
+  namespace: prod
   annotations:
     nginx.org/client-max-body-size: "20m"
     nginx.ingress.kubernetes.io/proxy-body-size: "20m"
