@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nos-dashboard-react-prod-deployment
-  namespace: dev
+  namespace: prod
   labels:
     app: nos-dashboard-react-prod
 spec:
