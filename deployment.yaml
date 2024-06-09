@@ -63,11 +63,11 @@ spec:
         envFrom:
         - secretRef:
             name: nos-backend-service-prod
-    tolerations:
-      - key: "ENV"
-        operator: "Equal"
-        value: "PROD"
-        effect: "NoSchedule"
+      tolerations:
+        - key: "ENV"
+          operator: "Equal"
+          value: "PROD"
+          effect: "NoSchedule"
 
 ---
 apiVersion: autoscaling/v2
