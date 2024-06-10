@@ -23,3 +23,8 @@ spec:
         envFrom:
         - secretRef:
             name: nos-dashboard-react-prod
+      tolerations:
+        - key: "ENV"
+          operator: "Equal"
+          value: "PROD"
+          effect: "NoSchedule"
