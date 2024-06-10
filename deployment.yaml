@@ -94,4 +94,4 @@ spec:
         name: memory
         target:
           type: AverageValue
-          averageValue: 2Gi
+          averageValue: 3Gi
