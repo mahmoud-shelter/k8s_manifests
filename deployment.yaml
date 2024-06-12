@@ -23,6 +23,14 @@ spec:
         envFrom:
         - secretRef:
             name: wee-in-backend-dev
+            
+        volumeMounts:
+        - name: logging-volume
+          mountPath: /app/logs
+      volumes:
+      - name: logging-volume
+        persistentVolumeClaim:
+          claimName: dev-logging-pvc
 
 ---
 apiVersion: apps/v1
