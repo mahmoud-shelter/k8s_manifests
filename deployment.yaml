@@ -30,7 +30,7 @@ spec:
       volumes:
       - name: logging-volume
         persistentVolumeClaim:
-          claimName: dev-logging-pvc
+          claimName: wee-logging-pvc
 
 ---
 apiVersion: apps/v1
