@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nos-dashboard-react-stg
+  name: wee-in-admin-dashboard-dev
   namespace: dev
   labels:
-    service: nos-dashboard-react-stg
+    service: wee-in-admin-dashboard-dev
 spec:
   type: ClusterIP
   selector:
-    app: nos-dashboard-react-stg
+    app: wee-in-admin-dashboard-dev
   ports:
   - port: 80         # ClusterIP port
     targetPort: 3000   # Pod port
