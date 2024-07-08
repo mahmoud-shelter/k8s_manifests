@@ -41,7 +41,7 @@ metadata:
   labels:
     app: wee-in-backend-dev-worker
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: wee-in-backend-dev-worker
