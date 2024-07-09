@@ -22,7 +22,7 @@ spec:
         - containerPort: 8000
         envFrom:
         - secretRef:
-            name: wee-in-backend-dev
+            name: wee-in-backend-stg
             
         volumeMounts:
         - name: logging-volume
@@ -58,7 +58,7 @@ spec:
         - containerPort: 8000
         envFrom:
         - secretRef:
-            name: wee-in-backend-dev
+            name: wee-in-backend-stg
 
 ---
 apiVersion: apps/v1
@@ -86,4 +86,4 @@ spec:
         - containerPort: 8000
         envFrom:
         - secretRef:
-            name: wee-in-backend-dev
+            name: wee-in-backend-stg
