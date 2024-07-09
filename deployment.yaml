@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wee-in-backend-dev-deployment
+  name: wee-in-backend-stg-deployment
   namespace: dev
   labels:
-    app: wee-in-backend-dev
+    app: wee-in-backend-stg
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: wee-in-backend-dev
+      app: wee-in-backend-stg
   template:
     metadata:
       labels:
-        app: wee-in-backend-dev
+        app: wee-in-backend-stg
     spec:
       containers:
-      - name: wee-in-backend-dev
+      - name: wee-in-backend-stg
         image: IMAGE_NAME
         ports:
         - containerPort: 8000
@@ -36,22 +36,22 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wee-in-backend-dev-worker-deployment
+  name: wee-in-backend-stg-worker-deployment
   namespace: dev
   labels:
-    app: wee-in-backend-dev-worker
+    app: wee-in-backend-stg-worker
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: wee-in-backend-dev-worker
+      app: wee-in-backend-stg-worker
   template:
     metadata:
       labels:
-        app: wee-in-backend-dev-worker
+        app: wee-in-backend-stg-worker
     spec:
       containers:
-      - name: wee-in-backend-dev-worker
+      - name: wee-in-backend-stg-worker
         image: IMAGE_NAME
         command: ["celery", "-A", "config", "worker", "--loglevel=info"]
         ports:
@@ -64,22 +64,22 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wee-in-backend-dev-beat-deployment
+  name: wee-in-backend-stg-beat-deployment
   namespace: dev
   labels:
-    app: wee-in-backend-dev-beat
+    app: wee-in-backend-stg-beat
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: wee-in-backend-dev-beat
+      app: wee-in-backend-stg-beat
   template:
     metadata:
       labels:
-        app: wee-in-backend-dev-beat
+        app: wee-in-backend-stg-beat
     spec:
       containers:
-      - name: wee-in-backend-dev-beat
+      - name: wee-in-backend-stg-beat
         image: IMAGE_NAME
         command: ["celery", "-A", "config", "beat", "--loglevel=info"]
         ports:
