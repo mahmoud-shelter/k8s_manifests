@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: la7-website-stg
+  name: la7-website-dev
   namespace: dev
   labels:
-    service: la7-website-stg
+    service: la7-website-dev
 spec:
   type: ClusterIP
   selector:
-    app: la7-website-stg
+    app: la7-website-dev
   ports:
   - port: 80         # ClusterIP port
     targetPort: 3000   # Pod port
