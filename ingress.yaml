@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: la7-backend-stg
+  name: la7-backend-dev
   namespace: dev
   annotations:
     nginx.org/client-max-body-size: "10m"
@@ -11,13 +11,13 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-   - host: la7-stg-api.shelter-technology.com
+   - host: la7-dev-api.shelter-technology.com
      http:
       paths:
       - path: /*
         pathType: Prefix
         backend:
           service:
-            name: la7-backend-stg
+            name: la7-backend-dev
             port:
               number: 80

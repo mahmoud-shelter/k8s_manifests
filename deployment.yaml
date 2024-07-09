@@ -1,82 +1,82 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: la7-backend-stg-deployment
+  name: la7-backend-dev-deployment
   namespace: dev
   labels:
-    app: la7-backend-stg
+    app: la7-backend-dev
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: la7-backend-stg
+      app: la7-backend-dev
   template:
     metadata:
       labels:
-        app: la7-backend-stg
+        app: la7-backend-dev
     spec:
       containers:
-      - name: la7-backend-stg
+      - name: la7-backend-dev
         image: IMAGE_NAME
         ports:
         - containerPort: 8000
         envFrom:
         - secretRef:
-            name: la7-backend-stg
+            name: la7-backend-dev
 
 
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: la7-backend-stg-worker-deployment
+  name: la7-backend-dev-worker-deployment
   namespace: dev
   labels:
-    app: la7-backend-stg-worker
+    app: la7-backend-dev-worker
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: la7-backend-stg-worker
+      app: la7-backend-dev-worker
   template:
     metadata:
       labels:
-        app: la7-backend-stg-worker
+        app: la7-backend-dev-worker
     spec:
       containers:
-      - name: la7-backend-stg-worker
+      - name: la7-backend-dev-worker
         image: IMAGE_NAME
         command: ["celery", "-A", "Academy_crm", "worker", "--loglevel=info"]
         ports:
         - containerPort: 8000
         envFrom:
         - secretRef:
-            name: la7-backend-stg
+            name: la7-backend-dev
 
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: la7-backend-stg-beat-deployment
+  name: la7-backend-dev-beat-deployment
   namespace: dev
   labels:
-    app: la7-backend-stg-beat
+    app: la7-backend-dev-beat
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: la7-backend-stg-beat
+      app: la7-backend-dev-beat
   template:
     metadata:
       labels:
-        app: la7-backend-stg-beat
+        app: la7-backend-dev-beat
     spec:
       containers:
-      - name: la7-backend-stg-beat
+      - name: la7-backend-dev-beat
         image: IMAGE_NAME
         command: ["celery", "-A", "Academy_crm", "beat", "--loglevel=info","-S","django"]
         ports:
         - containerPort: 8000
         envFrom:
         - secretRef:
-            name: la7-backend-stg
+            name: la7-backend-dev
