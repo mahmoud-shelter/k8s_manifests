@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-   - host: la7-dashboard.shelter-technology.com
+   - host: la7-stg-dashboard.shelter-technology.com
      http:
       paths:
       - path: /*
