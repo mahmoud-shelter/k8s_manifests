@@ -4,6 +4,8 @@ metadata:
   name: wee-in-backend-dev
   namespace: dev
   annotations:
+    nginx.org/client-max-body-size: "5m"
+    nginx.ingress.kubernetes.io/proxy-body-size: "5m"
     nginx.ingress.kubernetes.io/use-regex: "true"
     service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: "*"
 spec:
