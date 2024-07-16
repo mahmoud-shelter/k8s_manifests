@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nos-dashboard-react-stg-deployment
+  name: nos-landing-page-safafzco-deployment
   namespace: dev
   labels:
-    app: nos-dashboard-react-stg
+    app: nos-landing-page-safafzco
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nos-dashboard-react-stg
+      app: nos-landing-page-safafzco
   template:
     metadata:
       labels:
-        app: nos-dashboard-react-stg
+        app: nos-landing-page-safafzco
     spec:
       containers:
-      - name: nos-dashboard-react-stg
+      - name: nos-landing-page-safafzco
         image: IMAGE_NAME
         ports:
         - containerPort: 3000
         envFrom:
         - secretRef:
-            name: nos-dashboard-react-stg
+            name: nos-landing-page-safafzco
