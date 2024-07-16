@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-   - host: http://safafzco.shelter-technology.com/
+   - host: safafzco.shelter-technology.com
      http:
       paths:
       - path: /*
