@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nos-landing-page-safafzco-deployment
+  name: pepsico-dashboard-deployment
   namespace: dev
   labels:
-    app: nos-landing-page-safafzco
+    app: pepsico-dashboard
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nos-landing-page-safafzco
+      app: pepsico-dashboard
   template:
     metadata:
       labels:
-        app: nos-landing-page-safafzco
+        app: pepsico-dashboard
     spec:
       containers:
-      - name: nos-landing-page-safafzco
+      - name: pepsico-dashboard
         image: IMAGE_NAME
         ports:
         - containerPort: 3000
         # envFrom:
         # - secretRef:
-        #     name: nos-landing-page-safafzco
+        #     name: pepsico-dashboard

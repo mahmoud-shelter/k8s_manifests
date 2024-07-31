@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nos-landing-page-safafzco
+  name: pepsico-dashboard
   namespace: dev
   labels:
-    service: nos-landing-page-safafzco
+    service: pepsico-dashboard
 spec:
   type: ClusterIP
   selector:
-    app: nos-landing-page-safafzco
+    app: pepsico-dashboard
   ports:
   - port: 80         # ClusterIP port
     targetPort: 3000   # Pod port
